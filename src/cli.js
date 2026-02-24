@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 
-import { readFileSync } from "fs";
-import { htmlToReadableMarkdown } from "./index.js";
+import { htmlToReadableMarkdown, fetchHtml } from "./index.js";
 
 // 获取命令名称用于显示帮助信息
 function getCommandName() {
@@ -18,14 +17,14 @@ function showHelp() {
   console.log(`将网页HTML转换为可读的Markdown格式
 
 用法:
-  ${cmd} <file.html>
+  ${cmd} <url>
 
 参数:
-  file.html  要转换的HTML文件路径`);
+  url  网页URL(以http://或https://开头)`);
 }
 
 // 主函数
-function main() {
+async function main() {
   const args = process.argv.slice(2);
 
   // 没有参数时显示帮助信息
@@ -34,16 +33,18 @@ function main() {
     process.exit(0);
   }
 
+  const url = args[0];
+
   try {
-    const html = readFileSync(args[0], "utf-8");
+    // 从URL获取HTML并转换为Markdown
+    const html = await fetchHtml(url);
 
     if (!html.trim()) {
-      console.error("错误: 文件为空");
+      console.error("错误: 内容为空");
       process.exit(1);
     }
 
-    // 转换为Markdown
-    const markdown = htmlToReadableMarkdown(html);
+    const markdown = htmlToReadableMarkdown(html, url);
     console.log(markdown);
   } catch (error) {
     console.error("错误:", error.message);
