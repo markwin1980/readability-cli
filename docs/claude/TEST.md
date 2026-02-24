@@ -13,6 +13,9 @@ npm install
 ### 基本功能测试
 
 ```bash
+# 显示帮助信息
+node src/cli.js
+
 # 从文件读取测试
 node src/cli.js test.html
 

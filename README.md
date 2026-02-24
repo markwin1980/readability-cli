@@ -19,6 +19,9 @@ npm install
 ### 本地运行
 
 ```bash
+# 显示帮助信息
+node src/cli.js
+
 # 从文件读取
 node src/cli.js input.html
 
@@ -29,8 +32,11 @@ cat input.html | node src/cli.js
 ### 全局安装
 
 ```bash
-# 注册全局命令
-npm link
+# 从 GitHub 安装
+npm install -g markwin1980/readability-cli
+
+# 显示帮助信息
+readability-cli
 
 # 使用全局命令
 readability-cli input.html
