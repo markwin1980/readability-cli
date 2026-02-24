@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript 教程 - 从入门到精通</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/">首页</a></li>
+                <li><a href="/courses">课程</a></li>
+                <li><a href="/about">关于</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <aside class="sidebar">
+        <div class="ad">广告位1</div>
+        <div class="ad">广告位2</div>
+        <div class="related">相关文章</div>
+    </aside>
+
+    <main>
+        <article>
+            <h1>JavaScript 异步编程指南</h1>
+
+            <p class="meta">发布于 2024年1月15日 | 作者: 张三</p>
+
+            <p>JavaScript 是一门单线程语言,但它可以通过异步编程来处理耗时操作,避免阻塞主线程。本文将深入讲解 JavaScript 中的异步编程模式。更多资料请参考 <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript">MDN Web Docs</a> 和 <a href="https://javascript.info/">JavaScript.info</a>。</p>
+
+            <h2>回调函数</h2>
+            <p>回调函数是最早的异步编程解决方案。一个函数可以作为参数传递给另一个函数,并在适当的时候被调用。参见 <a href="https://nodejs.org/en/docs/guides/nodejs-docker-webapp/">Node.js 官方文档</a> 了解更多。</p>
+
+            <pre><code>function fetchData(callback) {
+    setTimeout(() => {
+        callback('数据加载完成');
+    }, 1000);
+}
+
+fetchData((result) => {
+    console.log(result);
+});</code></pre>
+
+            <h2>Promise</h2>
+            <p>Promise 是 ES6 引入的异步编程解决方案,它表示一个异步操作的最终完成或失败。Promise 有三种状态:pending、fulfilled 和 rejected。推荐阅读 <a href="https://promisesaplus.com/">Promise A+ 规范</a>。</p>
+
+            <pre><code>const promise = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        resolve('成功');
+    }, 1000);
+});
+
+promise.then(result => {
+    console.log(result);
+}).catch(error => {
+    console.error(error);
+});</code></pre>
+
+            <h2>Async/Await</h2>
+            <p>async/await 是 ES2017 引入的语法糖,它基于 Promise,让异步代码看起来像同步代码,更加清晰易读。</p>
+
+            <pre><code>async function getData() {
+    try {
+        const result = await fetchData();
+        console.log(result);
+    } catch (error) {
+        console.error(error);
+    }
+}</code></pre>
+
+            <h2>总结</h2>
+            <p>JavaScript 异步编程经历了从回调函数到 Promise,再到 async/await 的演进。选择合适的方案可以让代码更加清晰和易于维护。</p>
+        </article>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 教程网站 版权所有</p>
+        <div class="links">
+            <a href="/privacy">隐私政策</a>
+            <a href="/terms">服务条款</a>
+        </div>
+    </footer>
+</body>
+</html>

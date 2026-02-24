@@ -1,0 +1,26 @@
+{
+  "name": "readability-cli",
+  "version": "1.0.0",
+  "description": "将网页HTML转换为可读的Markdown格式",
+  "main": "src/index.js",
+  "bin": {
+    "readability-cli": "./src/cli.js"
+  },
+  "type": "module",
+  "scripts": {
+    "start": "node src/cli.js"
+  },
+  "keywords": [
+    "readability",
+    "markdown",
+    "html",
+    "cli"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@mozilla/readability": "^0.5.0",
+    "jsdom": "^25.0.0",
+    "turndown": "^7.1.2"
+  }
+}
