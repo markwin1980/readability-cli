@@ -18,14 +18,15 @@ readability-cli/
 │   ├── claude/
 │   │   ├── GIT.md
 │   │   ├── MODULE.md
-│   │   └── STRUCT.md
+│   │   ├── STRUCT.md
+│   │   └── TEST.md
 │   └── module/
+│       └── converter.md
 ├── src/
 │   ├── cli.js
 │   └── index.js
 ├── .gitignore
 ├── CLAUDE.md
 ├── package.json
-├── test.html
-└── test-real.html
+└── README.md
 ```

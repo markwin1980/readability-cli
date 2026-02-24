@@ -6,7 +6,6 @@
 
 - 自动提取网页主要内容,过滤导航、广告等无关内容
 - 将 HTML 转换为简洁的 Markdown 格式
-- 支持文件参数和管道输入
 
 ## 安装
 
@@ -24,9 +23,6 @@ node src/cli.js
 
 # 从文件读取
 node src/cli.js input.html
-
-# 从管道读取
-cat input.html | node src/cli.js
 ```
 
 ### 全局安装
@@ -40,7 +36,6 @@ readability-cli
 
 # 使用全局命令
 readability-cli input.html
-cat input.html | readability-cli
 ```
 
 ## 示例

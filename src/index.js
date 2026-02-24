@@ -8,9 +8,9 @@ import TurndownService from 'turndown';
  * @param {string} url - 网页URL(可选,用于解析相对路径)
  * @returns {string} Markdown内容
  */
-export function htmlToReadableMarkdown(html, url = 'http://example.com') {
+export function htmlToReadableMarkdown(html, url = '') {
   // 创建虚拟DOM环境
-  const doc = new JSDOM(html, { url });
+  const doc = new JSDOM(html, url ? { url } : {});
 
   // 使用Readability提取主要内容
   const reader = new Readability(doc.window.document);
@@ -51,8 +51,8 @@ export function htmlToReadableMarkdown(html, url = 'http://example.com') {
  * @param {string} url - 网页URL(可选)
  * @returns {object} 文章元数据
  */
-export function getArticleMetadata(html, url = 'http://example.com') {
-  const doc = new JSDOM(html, { url });
+export function getArticleMetadata(html, url = '') {
+  const doc = new JSDOM(html, url ? { url } : {});
   const reader = new Readability(doc.window.document);
   const article = reader.parse();
 

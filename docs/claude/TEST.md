@@ -18,9 +18,6 @@ node src/cli.js
 
 # 从文件读取测试
 node src/cli.js test.html
-
-# 从管道读取测试
-cat test.html | node src/cli.js
 ```
 
 ### 全局命令测试
@@ -31,7 +28,6 @@ npm link
 
 # 使用全局命令测试
 readability-cli test.html
-cat test.html | readability-cli
 ```
 
 ### 预期结果
